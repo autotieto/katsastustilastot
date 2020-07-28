@@ -5,6 +5,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "playwright": "^1.2.1",
     "puppeteer": "^5.2.1"
   }
 }
