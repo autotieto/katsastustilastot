@@ -24,8 +24,9 @@ const playwright = require('playwright');
     ]);
     const path = await download.path();
 
-    fs.copyFile(path, '/tmp/foo.csv', err => {});
+    fs.copyFile(path, '/tmp/foo.csv', err => {
+        process.exit(1)
+    });
 
     await browser.close();
 })();
-
