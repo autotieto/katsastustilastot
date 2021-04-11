@@ -1,6 +1,6 @@
 import requests
 
-config_url = 'http://trafi2.stat.fi/PXWeb/api/v1/fi/?config'
+config_url = 'https://trafi2.stat.fi/PXWeb/api/v1/fi/?config'
 table_url = 'https://trafi2.stat.fi/PXWeb/api/v1/en/TraFi/Katsastuksen_vikatilastot/010_kats_tau_101.px'
 YEAR_VARIABLE = 'Katsastusvuosi'
 
