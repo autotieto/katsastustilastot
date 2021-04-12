@@ -1,5 +1,17 @@
 # Traficomin katsastustilastot
 
+```sh
+pip install --user --upgrade pandas pyarrow
+```
+
+```python
+import pandas as pd
+df = pd.read_parquet('https://autotieto.github.io/katsastustilastot/010_kats_tau_101.parquet')
+df.dtypes
+```
+
+## Lähteet
+
 https://trafi2.stat.fi/PXWeb/pxweb/fi/TraFi/TraFi__Katsastuksen_vikatilastot/?tablelist=true
 
 https://trafi2.stat.fi/PXWeb/pxweb/fi/TraFi/TraFi__Katsastuksen_vikatilastot/010_kats_tau_101.px/

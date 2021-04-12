@@ -1,0 +1,39 @@
+name: Site
+
+on: workflow_dispatch
+
+jobs:
+
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+
+    - name: git checkout
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+
+    - name: Install dependencies
+      run: |
+        python -m pip install -qq --upgrade pip
+        pip install -qq -r requirements.txt
+
+    - name: Build
+      run: |
+        echo "Deleting ./site and ./data"
+        rm -rf ./site ./data
+        echo "Creating ./site and ./data"
+        mkdir -p ./site ./data
+        echo "Downloading data..."
+        python 01_download_data.py --url https://trafi2.stat.fi/database/TraFi/Katsastuksen_vikatilastot/010_kats_tau_101.px --file ./site/010_kats_tau_101.parquet
+        python 01_download_data.py --url https://trafi2.stat.fi/database/TraFi/Katsastuksen_vikatilastot/020_kats_tau_102.px --file ./site/020_kats_tau_102.parquet
+
+    - name: github pages deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site
