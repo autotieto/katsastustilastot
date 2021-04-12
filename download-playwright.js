@@ -2,7 +2,7 @@ const fs = require('fs');
 const playwright = require('playwright');
 
 (async () => {
-    const url = 'http://trafi2.stat.fi/PXWeb/pxweb/fi/TraFi/TraFi__Katsastuksen_vikatilastot/010_kats_tau_101.px/';
+    const url = 'https://trafi2.stat.fi/PXWeb/pxweb/fi/TraFi/TraFi__Katsastuksen_vikatilastot/010_kats_tau_101.px/';
     //const params = { headless: false, slowMo: 50 };
     const params = { };
 
@@ -24,9 +24,7 @@ const playwright = require('playwright');
     ]);
     const path = await download.path();
 
-    fs.copyFile(path, '/tmp/foo.csv', err => {
-        process.exit(1)
-    });
+    fs.copyFile(path, '/tmp/foo.csv', err => {});
 
     await browser.close();
 })();
