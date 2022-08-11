@@ -26,7 +26,7 @@ def main(args):
             df[k] = df[k]
         else:
             df[k] = df[k].astype('category')
-    df.to_parquet(args.file, compression='brotli')
+    df.to_parquet(args.file, compression='gzip')
 
 
 if __name__=='__main__':
