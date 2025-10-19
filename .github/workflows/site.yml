@@ -21,8 +21,8 @@ jobs:
 
     - name: Install packages
       run: |
-        apt-get update
-        apt-get install zstd
+        sudo apt-get -yqq update
+        sudo apt-get -yqq install zstd
 
     - name: Build
       run: |
