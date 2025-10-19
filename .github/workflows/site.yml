@@ -2,6 +2,9 @@ name: Site
 
 on:
   workflow_dispatch:
+  schedule:
+    # once every quarter
+    - cron: '0 12 5 1,4,7,10 *'
 
 jobs:
 
