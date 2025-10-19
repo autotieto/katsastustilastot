@@ -24,21 +24,9 @@ jobs:
         sudo apt-get -yqq update
         sudo apt-get -yqq install zstd
 
-    - name: Build
+    - name: Download and build
       run: |
-        echo "Deleting ./site and ./data"
-        rm -rf ./site ./data
-        echo "Creating ./site and ./data"
-        mkdir -p ./site ./data
-        echo "Downloading data..."
-        wget -qO site/010_kats_tau_101.px https://trafi2.stat.fi/database/TraFi/Katsastuksen_vikatilastot/010_kats_tau_101.px
-        px2csv-go -px site/010_kats_tau_101.px -csv site/010_kats_tau_101.csv
-        uv run 02_process_data.py site/010_kats_tau_101.csv site/010_kats_tau_101.parquet
-        zstd -f -v -T0 -11 --long --output-dir-flat ./site/ site/*.px site/*.csv
-
-        #wget https://trafi2.stat.fi/database/TraFi/Katsastuksen_vikatilastot/020_kats_tau_102.px
-        #wget https://trafi2.stat.fi/database/TraFi/Katsastuksen_vikatilastot/040_kats_tau_104.px
-        #wget https://trafi2.stat.fi/database/TraFi/Katsastuksen_vikatilastot/050_kats_tau_105.px
+        bash download.sh
 
     - name: Upload static files as artifact
       id: deployment
