@@ -11,7 +11,11 @@ def parse_args() -> argparse.Namespace:
 
 def main(args: argparse.Namespace):
     query = (
-            pl.scan_csv(args.in_file, separator=';')
+        pl.scan_csv(
+            args.in_file,
+            separator=';',
+            null_values=['null', '.'],
+        )
     )
     query.sink_parquet(args.out_file, compression_level=11)
 
