@@ -1,5 +1,6 @@
 import argparse
 import polars as pl
+import polars.selectors as cs
 
 
 def parse_args() -> argparse.Namespace:
@@ -15,6 +16,9 @@ def main(args: argparse.Namespace):
             args.in_file,
             separator=';',
             null_values=['null', '.'],
+        )
+        .with_columns(
+            cs.string().cast(pl.Categorical),
         )
     )
     query.sink_parquet(args.out_file, compression_level=19)
