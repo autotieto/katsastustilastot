@@ -17,7 +17,7 @@ def main(args: argparse.Namespace):
             null_values=['null', '.'],
         )
     )
-    query.sink_parquet(args.out_file, compression_level=11)
+    query.sink_parquet(args.out_file, compression_level=19)
 
 
 if __name__=='__main__':

@@ -20,6 +20,6 @@ for url in "${urls[@]}"; do
     uv run 02_process_data.py "site/$base_name.csv" "site/$base_name.parquet"
 done
 
-zstd -f -v --rm -T0 -11 --long --output-dir-flat ./site/ site/*.px site/*.csv
+zstd -f -v --rm -T0 -19 --long --output-dir-flat ./site/ site/*.px site/*.csv
 
 echo "All files processed successfully!"
