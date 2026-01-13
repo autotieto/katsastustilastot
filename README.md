@@ -57,3 +57,4 @@ https://stat.fi/media/uploads/org/avoindata/pxweb_api-ohje.pdf
 
 https://pxdata.stat.fi/api1.html
 
+https://pxdata.stat.fi/database/StatFin/StatFin_rap.csv
