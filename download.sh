@@ -16,7 +16,7 @@ for url in "${urls[@]}"; do
     base_name="${filename%.*}"  # Remove .px extension
     echo "Processing $filename..."
     wget -qO "site/$filename" "$url"
-    px2csv-go -px "site/$filename" -csv "site/$base_name.csv"
+    pcaxis2parquet -px "site/$filename" -csv "site/$base_name.csv"
     uv run 02_process_data.py "site/$base_name.csv" "site/$base_name.parquet"
 done
 
