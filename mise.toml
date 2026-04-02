@@ -1,2 +1,2 @@
 [tools]
-"ubi:mikaelhg/px2csv-go" = "latest"
+"github:mikaelhg/px2csv-go" = "latest"
