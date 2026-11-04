@@ -60,3 +60,13 @@ https://pxdata.stat.fi/api1.html
 https://pxdata.stat.fi/database/StatFin/StatFin_rap.csv
 
 https://trafi2.stat.fi/database/TraFi/TraFi_rap.csv
+
+## JS
+
+https://github.com/uwdata/arquero
+
+https://github.com/hyparam/hyparquet
+
+https://github.com/hyparam/hyparquet-compressors
+
+https://github.com/apache/arrow-js
